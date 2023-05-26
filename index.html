@@ -24,7 +24,7 @@
 	  sex = document.getElementById('sex').value
 	  S = "<table border=1><tr><th>ФИО</th><th>День рождения</th><th>Должность</th><th>Оклад</th><th>Пол</th><tr>"
 	  S+="<tr><td>"+fio+"</td><td>"+birthday+"</td><td>"+index_position+"</td><td>"+salary+"</td><td>"+sex+"</td></tr></table>"
-	  data = "ФИО, День рождения, Должность, Оклад, Пол\n"
+	  data = "ФИО, День рождения, Должность, Оклад, Пол"
           data+ = fio+","+birthday+","+index_position+","+salary+","+sex+","
           window.open('data:text/csv;charset=utf-8'+escape(data));
           document.write(S)
