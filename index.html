@@ -1,32 +1,53 @@
 <html>
   <body>
     <form name="person" onSubmit = f()>
-      ФИО: <input type = "text" name="fio"><br><br>
-      Дата рождения: <input type = "text" name="birthday"><br><br>
-      Должность: <select name= "position" size= "1" ><br>
-        <option name= "director" >Директор</option>
-        <option selected name= "manager" >Менеджер</option>
+      <h2>Информация о заказе</h2>
+      № заказа: <input type = "text" name="zakaz"><br><br>
+      Категория товара: <select name= "categorya" size= "1" ><br>
+        <option selected value= "inventar - sportivnye igry" >Инвентарь для спортивных игр</option>
+        <option value= "inventar - beg" >Инвентарь для бега</option>
+        <option value= "inventar - plavanie" >Инвентарь для плавания</option>
+        <option value= "inventar - gimnastika" >Инвентарь для спортивной гимнастики</option>
+        <option value= "inventar - tyrizm" >Инвентарь для туризма</option>
       </select><br><br>
-      Оклад: <input type = "text" name="salary"><br><br>
-      Пол: <input type= "radio" name = "sex" id= "sex" value= "Мужской">Мужской
-      <br>
-      <input type= "radio" name="sex" id= "sex" value= "Женский" checked>Женский
-      <br>
-      <br>
-      <input type = "submit" value = "save">
+      Товар: <select name= "tovar" size= "1"><br>
+        <option value= "fytbolniy myach artikul:8788">Футбольный мяч</option>
+        <option value= "shorty dlya bega artikul:2344">Шорты для бега</option>
+        <option value= "shapka rezinovaya artikul:5050" >Шапочка резиновая</option>
+        <option value= "raketka dlya tennisa artikul:6050" >Ракетки для тенниса</option>
+        <option value= "shater dlya tyrizma artikul:9007">Шатер для туризма</option>
+        <option value= "brysya gimnasticheskie artikul:3936" selected>Брусья гимнастические</option>
+      </select><br><br>
+      Количество: <input type = "text" name="kolvo"><br><br>
+      <h2>Информация о заказчике</h2>
+      ФИО: <input type = "text" name="fio"><br><br>
+      Телефон: <input type = "text" name="tel"><br><br>
+      Адрес: <input type = "text" name="adress"><br><br>
+      <h2>Информация об оплате и доставке</h2>
+      <b>Способ оплаты:</b>
+      <br><input type= "radio" name = "oplata" id= "oplata" value= "Nalichnye">Наличные<br>
+      <input type= "radio" name="oplata" id= "oplata" value= "Beznalichnye" checked>Безналичные<br><br>
+      <br><b>Способ доставки:</b>
+      <br><input type= "radio" name = "dostavka" id= "dostavka" value= "Samovyvoz">Самовывоз<br>
+      <input type= "radio" name="dostavka" id= "dostavka" value= "Kyrier" checked>Курьерr<br>
+      <br><br><input type = "submit" value = "Сохранить">
     </form>
     <script>
       function f(){
-	  fio = person.fio.value
-	  birthday = person.birthday.value
-	  index_position = person.position.selectedIndex
-	  salary = person.salary.value
-	  sex = document.getElementById('sex').value
-	  S = "<table border=1><tr><th>ФИО</th><th>День рождения</th><th>Должность</th><th>Оклад</th><th>Пол</th></tr>"
-	  S+="<tr><td>"+fio+"</td><td>"+birthday+"</td><td>"+index_position+"</td><td>"+salary+"</td><td>"+sex+"</td></tr></table>"
-	  data = "ФИО, День рождения, Должность, Оклад, Пол\n"
-	  data+=fio+","+birthday+","+index_position+" "+salary+", "+sex+"," 
-	  window.open('data:text/csv;charset=utf-8,'+escape(data));
+          zakaz = person.zakaz.value
+          categorya = person.categorya.value
+          tovar = person.tovar.value
+          kolvo = person.kolvo.value
+          fio = person.fio.value
+          tel = person.tel.value
+          adress = person.adress.value
+          oplata = document.getElementById('oplata').value
+          dostavka = document.getElementById('dostavka').value
+          S = "<table border=1><tr><th>Zakaz</th><th>Categorya</th><th>Tovar</th><th>Kolvo</th><th>FIO</th><th>Telephone</th><th>Adres</th><th>Sposob_oplaty</th><th>Sposob_dostavki</th></tr>"
+          S+="<tr><td>"+zakaz+"</td><td>"+categorya+"</td><td>"+tovar+"</td><td>"+kolvo+"</td><td>"+fio+"</td><td>"+tel+"</td><td>"+adress+"</td><td>"+oplata+"</td><td>"+dostavka+"</td></tr></table>"
+          data = "Zakaz, Categorya, Tovar, Kolvo, FIO, Telephone, Adres, Sposob_oplaty, Sposob_dostavki\n"
+          data+=zakaz+","+categorya+","+tovar+","+kolvo+","+fio+","+tel+","+adress+","+oplata+","+dostavka+""
+          window.open('data:text/csv;charset=utf-8,'+escape(data));
           document.write(S)
       }
     </script>
